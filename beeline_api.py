@@ -81,8 +81,15 @@ class beeline:
                 tmp.append(abs(int(item['duration'])-duration))
             items = [items[tmp.index(min(tmp))]]
 
+        # if abs(int(items[0]['duration'])-duration)>0.05*duration:
+
+
         print(userid, date_from, date_to, len(items), items)
-        if len(items) > 0:
+
+
+
+        if len(items) > 0 and abs(int(items[0]['duration']) - duration)/duration<0.01:
+            # print(int(items[0]['duration']), duration, , 0.01*duration)
             return self.get_record_url(items[0]['id'])
         return None
 

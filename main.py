@@ -58,16 +58,16 @@ def main():
 
 
             db.commit()
-
-            conn_sql = sqlite3.connect("/home/beeline/binotell.db")  # или :memory: чтобы сiохранить в RAM
-            cursor_sql = conn_sql.cursor()
-            now = datetime.now()
-            dt_string = now.strftime("%y-%m-%d %H:%M:%S")
-            sql = "INSERT INTO binotell_log VALUES('" + dt_string + "'," + str(counter_incomming) + ",1);"
-            cursor_sql.execute(sql)
-            sql = "INSERT INTO binotell_log VALUES('" + dt_string + "'," + str(counter_outgoing) + ",0);"
-            cursor_sql.execute(sql)
-            conn_sql.commit()
+            #
+            # conn_sql = sqlite3.connect("/home/beeline/binotell.db")  # или :memory: чтобы сiохранить в RAM
+            # cursor_sql = conn_sql.cursor()
+            # now = datetime.now()
+            # dt_string = now.strftime("%y-%m-%d %H:%M:%S")
+            # sql = "INSERT INTO binotell_log VALUES('" + dt_string + "'," + str(counter_incomming) + ",1);"
+            # cursor_sql.execute(sql)
+            # sql = "INSERT INTO binotell_log VALUES('" + dt_string + "'," + str(counter_outgoing) + ",0);"
+            # cursor_sql.execute(sql)
+            # conn_sql.commit()
 
 if __name__=='__main__':
     main()
