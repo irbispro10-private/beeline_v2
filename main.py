@@ -7,8 +7,8 @@ def main():
     db = DB(server='fromnmpz61.database.windows.net', login='owner-jdoomfm', db='mybi-jdoomfm', passwd='bhX1ayj2WN0X')
     if sys.argv[1] == '-d':
         days = int(sys.argv[2])
-        # date_to = datetime.datetime.now()
-        date_to = datetime.datetime(year=2022, month=6, day=8, hour=0,minute=0,second=1)
+        date_to = datetime.datetime.now()
+        # date_to = datetime.datetime(year=2022, month=6, day=8, hour=0,minute=0,second=1)
         dt_stop = date_to - datetime.timedelta(days=days)
         date_from = date_to - datetime.timedelta(hours=6)
         counter_incomming = 0
