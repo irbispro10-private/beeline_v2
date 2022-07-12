@@ -1,4 +1,4 @@
-import json, requests
+import json, requests, datetime
 
 class beeline:
     def __init__(self, token):
@@ -84,13 +84,19 @@ class beeline:
         # if abs(int(items[0]['duration'])-duration)>0.05*duration:
 
 
-        print(userid, date_from, date_to, len(items), items)
+
+        if len(items)>0:
+            print(datetime.datetime.utcfromtimestamp(int(items[0]['date'])/1000), items[0])
+            print(int(items[0]['duration']), duration, abs(int(items[0]['duration']) - duration) / duration, abs(int(items[0]['duration']) - duration) / duration < 0.01, 0.01 * duration)
 
 
-
-        if len(items) > 0 and abs(int(items[0]['duration']) - duration)/duration<0.01:
-            # print(int(items[0]['duration']), duration, , 0.01*duration)
+        if len(items) > 0 and abs(int(items[0]['duration']) - duration)/duration< 0.1:
+            print(datetime.datetime.utcfromtimestamp(int(items[0]['date']) / 1000), items[0])
+            print(int(items[0]['duration']), duration, abs(int(items[0]['duration']) - duration) / duration,
+                  abs(int(items[0]['duration']) - duration) / duration < 0.1, 0.1 * duration)
+            print('\n')
             return self.get_record_url(items[0]['id'])
+        print('\n')
         return None
 
 
